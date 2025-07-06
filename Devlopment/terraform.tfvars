@@ -9,3 +9,18 @@ root-resource = {
     location = "West Europe"
   }
 }
+
+root-vnet = {
+  vnet1 = {
+    vnet_name     = "sonu-vnet"
+    rg_name       = "sonu"
+    location      = "West Europe"
+    address_space = ["10.0.0.0/24"]
+  }
+  vnet2 = {
+    vnet_name     = "monu-vnet"
+    rg_name       = "monu"
+    location      = "West Europe"
+    address_space = ["10.0.0.0/24"]
+  }
+}
