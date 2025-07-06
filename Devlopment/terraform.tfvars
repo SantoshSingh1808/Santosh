@@ -31,5 +31,11 @@ root-subnet = {
     rg_name = "sonu"
     virtual_network_name = "sonu-vnet"
     address_prefixes = ["10.0.0.0/26"]
+
+    subnet2 = {
+    subnet_name = "backend-subnet"
+    rg_name = "sonu"
+    virtual_network_name = "sonu-vnet"
+    address_prefixes = ["10.0.0.64/26"]
   }
 }
