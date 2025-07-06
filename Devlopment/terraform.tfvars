@@ -23,4 +23,11 @@ root-vnet = {
     location      = "West Europe"
     address_space = ["10.0.0.0/24"]
   }
+
+    subnet2 = {
+    subnet_name = "backend-subnet"
+    rg_name = "sonu"
+    virtual_network_name = "sonu-vnet"
+    address_prefixes = ["10.0.0.64/26"]
+  }
 }
