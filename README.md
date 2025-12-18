@@ -71,38 +71,66 @@ Examples:
 ├── versions.tf
 └── README.md
 
-📤 Outputs & Dependency Management
-        Child modules expose values using output
-        Root module consumes outputs for chaining dependencies
+## 📤 Outputs & Dependency Management
 
-🌍 Multi-Environment Strategy
-        Each environment has:
-        Separate state file
-        Separate backend
-        Separate terraform.tfvars
-        Benefits:
-        No state conflicts
-        Environment isolation
-        Safer production deployments
+- Child modules expose required values using `output`
+- Root module consumes module outputs to chain dependencies between resources
 
-🔐 State Management
-        Remote backend (Azure Storage / S3 / GCS)
-        State locking enabled
-        Versioned state files        
+Example:
+```hcl
+output "subnet_id" {
+  value = azurerm_subnet.this.id
+}
 
-🧠 Best Practices Followed
-        Modular design
-        DRY principle
-        Explicit outputs
-        Variable-driven configuration
-        Version constraints
-        Remote backend
-        Clear separation of concerns
-🧪 Recommended Enhancements
-        Terratest for module testing
-        Terraform fmt & validate in CI/CD
-        Policy-as-Code (OPA / Sentinel)
-        GitOps-based promotion
 
-👨‍💻 Author
-Maintained by Sandeep Singh        
+## 🌍 Multi-Environment Strategy
+
+Each environment is managed independently with:
+
+- Separate **state file**
+- Separate **backend configuration**
+- Separate **terraform.tfvars**
+
+### ✅ Benefits
+- No state conflicts
+- Strong environment isolation
+- Safer production deployments
+
+---
+
+## 🔐 State Management
+
+- Remote backend options:
+  - Azure Storage
+  - Amazon S3
+  - Google Cloud Storage
+- State locking enabled to prevent concurrent executions
+- Versioned state files for audit and rollback
+
+---
+
+## 🧠 Best Practices Followed
+
+- Modular design
+- DRY (Don’t Repeat Yourself) principle
+- Explicit outputs
+- Variable-driven configuration
+- Terraform version constraints
+- Remote backend usage
+- Clear separation of concerns
+
+---
+
+## 🧪 Recommended Enhancements
+
+- **Terratest** for module-level and integration testing
+- `terraform fmt` and `terraform validate` in CI/CD pipelines
+- **Policy-as-Code** using OPA or Sentinel
+- **GitOps-based promotion** across environments
+
+---
+
+## 👨‍💻 Author
+
+Maintained by **Sandeep Singh**
+       
